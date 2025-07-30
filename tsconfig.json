@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "outDir": "../target/classes/static",
+    "removeComments": true,
+    // "baseUrl": "src/main/webapp",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "target": "ES2022",
+    "module": "ES2022",
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": [
+        "src/main/webapp/*"
+      ],
+    },
+    "sourceMap": true,
+    "alwaysStrict": true,
+    "allowUnreachableCode": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "typeRoots": [
+      "src/main/webapp/types",
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules/**/*",
+    "**/build/**/*",
+    "**/out/**/*"
+  ]
+}

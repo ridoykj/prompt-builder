@@ -1,0 +1,11 @@
+error:
+  handling:
+    http-status-in-json-response: true
+    exception-logging: NO_LOGGING
+    full-stacktrace-http-statuses: 5xx
+    log-levels:
+      5xx: ERROR
+spring:
+  profiles:
+    active:
+    - local
