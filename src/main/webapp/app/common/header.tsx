@@ -30,12 +30,12 @@ export default function Header() {
   }, []);
 
   return (
-    <header ref={headerRef} className="bg-gray-50">
+    <header ref={headerRef} className="bg-white border-b">
       <div className="container mx-auto px-4 md:px-6">
         <nav className="flex flex-wrap items-center justify-between py-2">
-          <Link to="/" className="flex py-1.5 mr-4">
-            <img src="/images/logo.png" alt={t('app.title')} width="30" height="30" className="inline-block" />
-            <span className="text-xl pl-3">{t('app.title')}</span>
+          <Link to="/" className="flex items-center py-1.5 mr-4">
+            <img src="/images/logo.png" alt="LLM Analyzer" width="30" height="30" className="inline-block" />
+            <span className="text-xl pl-3 font-semibold">LLM Analyzer</span>
           </Link>
           <button type="button" className="js-dropdown md:hidden border rounded cursor-pointer" data-dropdown-keepopen="true"
               aria-label={t('navigation.toggle')} aria-controls="navbarToggle" aria-expanded="false">
@@ -45,12 +45,24 @@ export default function Header() {
               <div className="w-6 h-0.5 bg-gray-500"></div>
             </div>
           </button>
-          <div className="hidden md:block flex grow md:grow-0 justify-end basis-full md:basis-auto pt-3 md:pt-1 pb-1" id="navbarToggle">
-            <ul className="flex">
-              <li>
-                <Link to="/" className="block text-gray-500 p-2">{t('navigation.home')}</Link>
-              </li>
-            </ul>
+          <div className="hidden md:flex items-center grow md:grow-0 justify-end basis-full md:basis-auto pt-3 md:pt-1 pb-1" id="navbarToggle">
+            <div className="relative">
+              <button type="button" className="js-dropdown flex items-center" aria-expanded="false">
+                <span className="flex items-center justify-center h-8 w-8 rounded-full bg-gray-200 text-gray-700 font-semibold">
+                  G
+                </span>
+              </button>
+              <div className="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border py-1 z-50">
+                <div className="px-4 py-3 border-b">
+                  <p className="text-sm font-semibold">Guest</p>
+                  <p className="text-xs text-gray-500">guest@example.com</p>
+                </div>
+                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</Link>
+                <div className="border-t"></div>
+                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign in</Link>
+              </div>
+            </div>
           </div>
         </nav>
       </div>
