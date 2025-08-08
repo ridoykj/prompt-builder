@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { BotMessageSquare, ChevronDown, User } from 'lucide-react';
 
 
 export default function Header() {
-  const { t } = useTranslation();
   const headerRef = useRef<HTMLElement|null>(null);
 
   const handleClick = (event: Event) => {
@@ -30,37 +29,31 @@ export default function Header() {
   }, []);
 
   return (
-    <header ref={headerRef} className="bg-white border-b">
+    <header ref={headerRef} className="bg-card bg-white/80 border-b sticky top-0 z-50">
       <div className="container mx-auto px-4 md:px-6">
-        <nav className="flex flex-wrap items-center justify-between py-2">
-          <Link to="/" className="flex items-center py-1.5 mr-4">
-            <img src="/images/logo.png" alt="LLM Analyzer" width="30" height="30" className="inline-block" />
-            <span className="text-xl pl-3 font-semibold">LLM Analyzer</span>
+        <nav className="flex h-16 items-center justify-between">
+          <Link to="/" className="flex items-center gap-2 font-semibold">
+            <BotMessageSquare className="h-6 w-6 text-primary" />
+            <span className="">LLM Analyzer</span>
           </Link>
-          <button type="button" className="js-dropdown md:hidden border rounded cursor-pointer" data-dropdown-keepopen="true"
-              aria-label={t('navigation.toggle')} aria-controls="navbarToggle" aria-expanded="false">
-            <div className="space-y-1.5 my-2.5 mx-4">
-              <div className="w-6 h-0.5 bg-gray-500"></div>
-              <div className="w-6 h-0.5 bg-gray-500"></div>
-              <div className="w-6 h-0.5 bg-gray-500"></div>
-            </div>
-          </button>
-          <div className="hidden md:flex items-center grow md:grow-0 justify-end basis-full md:basis-auto pt-3 md:pt-1 pb-1" id="navbarToggle">
+          <div className="flex items-center gap-4">
             <div className="relative">
-              <button type="button" className="js-dropdown flex items-center" aria-expanded="false">
-                <span className="flex items-center justify-center h-8 w-8 rounded-full bg-gray-200 text-gray-700 font-semibold">
-                  G
+              <button type="button" className="js-dropdown flex items-center gap-2" aria-expanded="false">
+                <span className="flex items-center justify-center h-8 w-8 rounded-full bg-muted text-muted-foreground font-semibold">
+                  <User className="h-5 w-5" />
                 </span>
+                <span className="hidden sm:inline">Guest</span>
+                <ChevronDown className="h-4 w-4 opacity-50" />
               </button>
-              <div className="hidden absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border py-1 z-50">
+              <div className="hidden absolute right-0 mt-2 w-56 bg-card rounded-md shadow-lg border py-1 z-50">
                 <div className="px-4 py-3 border-b">
                   <p className="text-sm font-semibold">Guest</p>
-                  <p className="text-xs text-gray-500">guest@example.com</p>
+                  <p className="text-xs text-muted-foreground">guest@example.com</p>
                 </div>
-                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</Link>
-                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</Link>
-                <div className="border-t"></div>
-                <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign in</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-foreground hover:bg-accent">Profile</Link>
+                <Link to="#" className="block px-4 py-2 text-sm text-foreground hover:bg-accent">Settings</Link>
+                <div className="border-t my-1"></div>
+                <Link to="#" className="block px-4 py-2 text-sm text-foreground hover:bg-accent">Sign in</Link>
               </div>
             </div>
           </div>

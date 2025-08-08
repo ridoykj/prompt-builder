@@ -15,7 +15,7 @@ export default function App() {
 
   return (<>
     <Header />
-    <main className="my-12">
+    <main className="py-12">
       <div className="container mx-auto px-4 md:px-6">
         {msgSuccess && <p className="bg-green-200 border-green-800 text-green-800 border rounded p-4 mb-6" role="alert">{msgSuccess}</p>}
         {msgInfo && <p className="bg-blue-200 border-blue-800 text-blue-800 border rounded p-4 mb-6" role="alert">{msgInfo}</p>}
